@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.CreateNoteActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:clipToPadding="false"
+        android:paddingBottom="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/backImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="@color/colorIcons"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <ImageView
+                android:id="@+id/imageSave"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/background_done_button"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_done_24"
+                app:tint="@color/colorIcons"
+                app:layout_constraintTop_toTopOf="@id/backImage"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <EditText
+                android:id="@+id/edNoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:hint="Название записи"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintTop_toBottomOf="@id/backImage"/>
+
+            <TextView
+                android:id="@+id/textDateTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorIcons"
+                android:textSize="10sp"
+                app:layout_constraintRight_toRightOf="@id/edNoteTitle"
+                app:layout_constraintLeft_toLeftOf="@id/edNoteTitle"
+                app:layout_constraintTop_toBottomOf="@id/edNoteTitle"/>
+
+            <EditText
+                android:id="@+id/edNoteSubTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:hint="Подзаголовок записи"
+                android:textColorHint="@color/colorTextHint"
+                android:inputType="text"
+                android:paddingBottom="8dp"
+                android:textColor="@color/colorTextSubtitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/viewSubTitleIndicator"
+                app:layout_constraintTop_toBottomOf="@id/edNoteTitle"/>
+
+            <View
+                android:id="@+id/viewSubTitleIndicator"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_subtitle_indicator"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/edNoteSubTitle"
+                app:layout_constraintTop_toTopOf="@id/edNoteSubTitle"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imageNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/edNoteSubTitle"
+                />
+
+            <ImageView
+                android:id="@+id/imageRemoveImage"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/background_delete"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:visibility="gone"
+                android:tint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="@id/imageNote"
+                app:layout_constraintTop_toTopOf="@id/imageNote"/>
+
+            <LinearLayout
+                android:id="@+id/layoutWebUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/imageNote">
+
+                <TextView
+                    android:id="@+id/textWebUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:textColor="@color/colorWhite"
+                    android:text="ССЫЛКА"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/imageRemoveUrl"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:tint="@color/colorDelete"
+                    />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edNoteText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="15dp"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="Введите текст записи"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:minHeight="100dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/layoutWebUrl"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/layout_misscellaneous"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
